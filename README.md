@@ -1,1 +1,3 @@
 # price_estimator_tool_streamlit
+
+This tool is meant to help customers effectively price their vehicles. It combines information about what the vehicles current 'worth' is, along with data about the likelihood at selling at different price points, as well as historical trends for the vehicle and the broader market performance to understand the costs associated with not selling the vehicle quickly (depreciation metrics).
