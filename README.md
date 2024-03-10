@@ -6,4 +6,6 @@ I am using mock data, but this is meant to illustrate how this kind of data can 
 
 I originally developed this tool in HTML, CSS, and JavaScript and connected to a serverless function I wrote in Python to handle the API calls and database queries. This version in Streamlit was more challenging to get to function in a similar way, but was successful after learning more about using Streamlit's session state.
 
+To run, just download and use `streamlit run src/app.py`
+
 ![image](https://github.com/dillonalexander/Price-Estimator-Tool/assets/101664530/0678b50d-f774-4b46-ba67-b50018c01d28)
