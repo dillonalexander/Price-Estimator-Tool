@@ -8,4 +8,6 @@ I originally developed this tool in HTML, CSS, and JavaScript and connected to a
 
 To run, just download, make sure to have all the required packages, and use `streamlit run src/app.py`
 
+It's compatible with both web and mobile platforms.
+
 ![image](https://github.com/dillonalexander/Price-Estimator-Tool/assets/101664530/0678b50d-f774-4b46-ba67-b50018c01d28)
