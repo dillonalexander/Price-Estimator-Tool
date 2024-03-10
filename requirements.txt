@@ -1,0 +1,9 @@
+altair
+numpy 
+pandas 
+pre-commit 
+python-jose
+requests 
+snowflake-connector-python 
+streamlit==1.29.0
+urllib3
