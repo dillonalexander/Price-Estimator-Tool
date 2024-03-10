@@ -177,7 +177,6 @@ def estimate_model_api_call(vin, condition_grade, odometer_mi, state, trim=None,
 def snowflake_query(vin, queries):
     
     response = helper.get_snowflake_query_data(vin)
-    print(f"response: {response}")
     return response
 
     # conn = snowflake.connector.connect(
@@ -212,11 +211,8 @@ def process_data(vin, condition_grade, odometer, state, drivable_indicator, clie
     try:
         year, make, model, trim = get_vehicle_description(vin)
         estimate_model_response = estimate_model_api_call(vin, condition_grade, odometer, state, trim, drivable_indicator, client_floor_price, client_name)
-        print(f"estimate_model_response: {estimate_model_response}")
         estimate_model_response_df = pd.DataFrame([estimate_model_response], columns=["date", "valuation", "probability", "trim_match", "price_low", "price_high"])
-        print(f"estimate_model_response_df: {estimate_model_response_df}")
         vin8_10 = vin[:8] + "_" + vin[9]
-        print(f"vin8_10: {vin8_10}")
         snowflake_data = snowflake_query(vin,
             [
                 f"SELECT VIN8_10, RETENTION_BAND, PROBABILITY FROM PRICE_ESTIMATOR_SOLD_PERCENTAGE WHERE VIN8_10 = '{vin8_10}';",
@@ -225,7 +221,6 @@ def process_data(vin, condition_grade, odometer, state, drivable_indicator, clie
                 "SELECT TIMEFRAME, DATE, PERCENTAGE_FROM_BASELINE, MARKET_SEGMENT FROM PRICE_ESTIMATOR_MARKET_SEGMENT_GRAPH WHERE MARKET_SEGMENT = 'Overall';",
             ]
         )
-        print(f"snowflake_data: {snowflake_data}")
 
         if snowflake_data[2]:
             segment = snowflake_data[2][0][3]
